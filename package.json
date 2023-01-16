@@ -1,0 +1,17 @@
+{
+  "name": "cypresswebautomation",
+  "version": "1.0.0",
+  "description": "Web Automation using cypress framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/cypress run",
+    "testRunnerOpen": "node_modules/.bin/cypress open"
+  },
+  "author": "Priya Palaniappan",
+  "license": "ISC",
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.1",
+    "cypress": "^12.3.0",  
+    "@cypress/browserify-preprocessor": "latest"
+  }
+}
