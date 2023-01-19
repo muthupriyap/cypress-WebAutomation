@@ -22,17 +22,32 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+// Getting currentUrl
+Cypress.Commands.add("currentUrl", () => {
+  cy.url().then(function () {});
+});
 
+// Picking up the random value from the dropdown list
+Cypress.Commands.add("randomPickDate", function (getDatePickerElement) {
+  cy.get(getDatePickerElement)
+    .find("option")
+    .then(function (options) {
+      let dropDownList = Math.floor(Math.random() * options.length);
+      return cy.wrap(dropDownList);
+    });
+});
 
-// Getting currentUrl 
-Cypress.Commands.add('currentUrl',()=> {
-    cy.url().then(function(){
-})
-})
+// Click Method
+Cypress.Commands.add("clickButton", (getClickElement) => {
+  getClickElement().click();
+});
 
-Cypress.Commands.add('randomPickDate', function (getDatePickerElement){
-    cy.get(getDatePickerElement).find('option').then(function(options){
-    let dropDownList = Math.floor(Math.random() * options.length)
-    return cy.wrap(dropDownList)
-    })
-})
+//getText Method
+
+Cypress.Commands.add("getText", (getTextElement) => {
+  getTextElement().then(function (textName) {
+    const textValue = textName.text();
+    return cy.wrap(textValue);
+  });
+});
+

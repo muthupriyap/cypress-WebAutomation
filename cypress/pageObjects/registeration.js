@@ -57,7 +57,6 @@ class RegisterationPage {
 
     successfulRegisteration(){
         return cy.get(submitRegisterButton)
-
     }
 
     titleRegister(){
